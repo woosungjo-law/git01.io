@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>산업 AI의 혁명</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Noto Sans KR', Arial, sans-serif;
+            color: #333;
+            background-color: #f8f9fa;
+            /* 폰트 크기 및 줄 간격 조절 (이전 수정 유지) */
+            font-size: 18px; /* 폰트 크기 증가 */
+            line-height: 1.7; /* 줄 간격 증가 */
+        }
+        .container {
+            /* 컨테이너 너비 확장 (16:9 느낌 - 이전 수정 유지) */
+            max-width: 1400px; 
+            margin: 0 auto;
+            padding: 20px;
+            background-color: white;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+            border-radius: 10px;
+        }
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 20px;
+        }
+        h1 {
+            color: #2c3e50;
+            margin-bottom: 15px;
+            font-size: 2.5rem; /* 기존 크기 유지 */
+        }
+        h2 {
+            color: #3498db;
+            margin: 25px 0 15px;
+            font-size: 1.8rem; /* 기존 크기 유지 */
+        }
+         h3 {
+            color: #2980b9;
+            margin-bottom: 10px;
+            font-size: 1.2rem; /* h3 크기도 약간 조정 - 이전 수정 유지 */
+        }
+        .intro {
+            background-color: #ecf0f1;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+        }
+        .grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+        .case-studies {
+            display: grid;
+            /* 산업AI 혁신 사례 4 컬럼으로 변경 (이전 수정 유지) */
+            grid-template-columns: repeat(4, 1fr); 
+            gap: 25px;
+        }
+        .case {
+            background: #f5f9ff;
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 4px solid #3498db;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+             /* 폰트 크기 증가에 맞춰 내부 p 태그 마진 조정 (이전 수정 유지) */
+            margin-bottom: 15px; 
+        }
+         .case p {
+             margin-bottom: 8px; /* 사례 내부 단락 간격 (이전 수정 유지) */
+         }
+         .case p:last-child {
+             margin-bottom: 0;
+         }
+        
+        .future {
+            background: linear-gradient(135deg, #e0f7fa, #f5f5f5);
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 30px;
+        }
+        .stat {
+            font-weight: bold;
+            color: #c0392b;
+        }
+        .highlight {
+            background-color: #fffde7;
+            padding: 3px 5px;
+            border-radius: 3px;
+        }
+        /* Footer 스타일 삭제 - footer HTML 요소가 삭제되었기 때문 */
+        /* .footer {
+            text-align: center;
+            margin-top: 30px;
+            font-size: 0.9rem;
+            color: #7f8c8d;
+        } */
+        .case-image {
+            width: 100%;
+            height: 150px; /* 기존 높이 유지 */
+            object-fit: cover;
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>기계가 배우는 세상: 산업 AI가 만드는 똑똑한 혁명</h1>
+            <p>인공지능이 산업 현장에 가져오는 혁신적인 변화</p>
+        </header>
+
+        <section class="intro">
+            <h2>산업 AI란?</h2>
+            <p>산업 AI는 산업 현장에 인공지능 기술을 적용하여 생산성, 효율성, 품질을 혁신적으로 향상시키는 기술입니다. 공장이나 설비의 '디지털 두뇌'로서 데이터를 분석하고 문제 발생 전에 예측합니다.</p>
+            <p>반도체 공장 한 곳에서만 <span class="stat">하루 평균 2TB</span>의 데이터가 생성됩니다.</p>
+        </section>
+
+        <div class="grid">
+            <div>
+                <h2>산업 AI의 목표</h2>
+                <ul>
+                    <li>생산 최적화 및 생산성 향상</li>
+                    <li>실시간 품질 모니터링 및 예측 유지보수</li>
+                    <li>데이터 기반 의사결정 및 자율 운영</li>
+                    <li>에너지/자원 효율성 향상</li>
+                </ul>
+            </div>
+            <div>
+                <h2>산업 현장의 문제</h2>
+                <ul>
+                    <li>숙련 기술자 노하우 소실 (<span class="stat">약 250만 명</span> 부족 예상)</li>
+                    <li>제조업 50세 이상 <span class="stat">37.4%</span>, 30세 미만 <span class="stat">12.1%</span></li>
+                    <li>중소 제조기업 <span class="stat">62%</span> 수작업 품질 검사 의존</li>
+                    <li>품질 문제 연간 비용 <span class="stat">약 17조원</span> (65% AI 예방 가능)</li>
+                </ul>
+            </div>
+        </div>
+
+        <h2>산업 AI 혁신 사례</h2>
+        <div class="case-studies">
+            <div class="case">
+                <img src="https://cdn.pixabay.com/photo/2016/09/07/08/25/machine-1651014_640.jpg" alt="지멘스 디지털 트윈" class="case-image">
+                <h3>지멘스 디지털 트윈</h3>
+                <p>공장 가상 복제본으로 실시간 모니터링/최적화.</p>
+                <p><span class="highlight">생산 계획 75% 단축</span>, <span class="highlight">불량률 18% 감소</span>, <span class="highlight">에너지 15% 절감</span></p>
+                <p>설비 고장 <span class="highlight">평균 48시간 전 예측</span>, 가동 중단 시간 절감.</p>
+            </div>
+            <div class="case">
+                <img src="https://cdn.pixabay.com/photo/2022/06/24/13/30/factory-7281686_640.png" alt="보쉬 AI 품질 관리" class="case-image">
+                <h3>보쉬 AI 품질 관리</h3>
+                <p>컴퓨터 비전, AI 데이터 분석으로 제조 품질 개선.</p>
+                <p><span class="highlight">품질 검사 90% 단축</span>, <span class="highlight">정확도 99.8%</span>, <span class="highlight">인력 비용 1,200만 달러 절감</span></p>
+                <p>전이학습으로 <span class="highlight">500개 샘플만으로 95%+ 정확도</span> 달성.</p>
+            </div>
+            <div class="case">
+                <img src="https://cdn.pixabay.com/photo/2024/07/28/12/01/ai-generated-8927312_640.jpg" alt="에어버스 생산라인 최적화" class="case-image">
+                <h3>에어버스-팔란티어 파운드리</h3>
+                <p>팔란티어 '파운드리' 플랫폼 활용 생산라인 최적화.</p>
+                <p><span class="highlight">A350 생산 30% 단축</span>, <span class="highlight">부품 재고 25% 절감</span>, <span class="highlight">생산 지연 62% 감소</span></p>
+                <p>수천 개 데이터 소스 통합 '디지털 스레드' 구축.</p>
+            </div>
+            <div class="case">
+                <img src="https://cdn.pixabay.com/photo/2019/04/23/13/48/robot-4149584_640.jpg" alt="SK 그룹 산업 AI" class="case-image">
+                <h3>SK 그룹의 산업 AI</h3>
+                <p>SK하이닉스: 'Virtual Metrology' 공정 효율 <span class="highlight">15-20% 향상</span></p>
+                <p>SK이노베이션: '스마트플랜트 2.0' <span class="highlight">연간 100억+</span> 비용 개선</p>
+                <p>SK텔레콤: AI 영상인식 통신 철탑 안전 검사 시스템 구축.</p>
+            </div>
+        </div>
+
+        <section class="future">
+            <h2>산업 AI 미래 전망</h2>
+            <div class="grid">
+                <div>
+                    <h3>산업 현장의 변화</h3>
+                    <ul>
+                        <li>'대량 생산'에서 '대량 맞춤화' 전환</li>
+                        <li>인간-로봇 협업 확대</li>
+                        <li>2025년부터 '자율공장' 본격화</li>
+                        <li>자율공장 <span class="highlight">생산성 15~20% 추가 향상</span>, <span class="highlight">에너지 효율 30% 개선</span> 예상</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3>시장 규모 전망</h3>
+                    <ul>
+                        <li>2024년 <span class="stat">약 159억 달러</span> → 2030년 <span class="stat">약 845억 달러</span> 성장</li>
+                        <li>연평균 성장률 <span class="stat">32.1%</span></li>
+                        <li>예측 유지보수 <span class="stat">연평균 36.7%</span> 가장 빠르게 성장</li>
+                        <li>아태지역 <span class="stat">연평균 34.2%</span> 가장 빠르게 성장</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer 삭제됨 -->
+        <!-- <div class="footer">
+            <p>산업 AI는 제4차 산업혁명의 핵심 동력입니다. 성공적인 도입을 위해서는 기술 자체보다 이를 활용하는 사람과 조직의 변화 의지가 중요합니다.</p>
+        </div> -->
+    </div>
+</body>
+</html>
