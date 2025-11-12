@@ -1,0 +1,862 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>충성의 역설: 떠남으로써 완성되는 원칙</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --sky-blue: #A2D2FF;
+            --soft-pink: #FFC8DD;
+            --lavender: #CDB4DB;
+            --cream: #FFF2B2;
+            --navy: #3D405B;
+            --white: #FFFFFF;
+            --light-gray: #F8F9FA;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            word-break: keep-all;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+        }
+
+        body {
+            font-family: 'Noto Sans KR', sans-serif;
+            background: linear-gradient(135deg, var(--cream) 0%, var(--sky-blue) 100%);
+            color: var(--navy);
+            line-height: 1.8;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Header */
+        .header {
+            text-align: center;
+            padding: 60px 20px 40px;
+            animation: fadeInDown 1s ease-out;
+        }
+
+        .header h1 {
+            font-size: 2.8rem;
+            font-weight: 700;
+            color: var(--navy);
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 0 rgba(255, 255, 255, 0.5);
+        }
+
+        .header .subtitle {
+            font-size: 1.3rem;
+            color: var(--navy);
+            opacity: 0.8;
+            font-weight: 500;
+        }
+
+        /* Section Base */
+        .section {
+            background: var(--white);
+            border-radius: 30px;
+            padding: 50px 40px;
+            margin: 40px 0;
+            box-shadow: 0 10px 30px rgba(61, 64, 91, 0.15);
+            position: relative;
+            animation: fadeInUp 0.8s ease-out;
+            transition: transform 0.3s ease;
+        }
+
+        .section:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(61, 64, 91, 0.2);
+        }
+
+        .section-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--navy);
+            margin-bottom: 30px;
+            text-align: center;
+            position: relative;
+            padding-bottom: 15px;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--soft-pink), var(--lavender));
+            border-radius: 2px;
+        }
+
+        /* Illustration Container */
+        .illustration {
+            text-align: center;
+            margin: 30px 0;
+        }
+
+        .illustration svg {
+            max-width: 100%;
+            height: auto;
+            transition: transform 0.3s ease;
+        }
+
+        .illustration svg:hover {
+            transform: scale(1.05);
+        }
+
+        /* Mirror Section */
+        .mirror-section {
+            background: linear-gradient(135deg, var(--soft-pink) 0%, var(--lavender) 100%);
+        }
+
+        .quote-box {
+            background: var(--white);
+            border-radius: 20px;
+            padding: 25px;
+            margin: 20px 0;
+            border-left: 5px solid var(--lavender);
+            font-style: italic;
+            font-size: 1.1rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Erosion Section */
+        .erosion-section {
+            background: linear-gradient(135deg, var(--cream) 0%, var(--sky-blue) 50%);
+        }
+
+        .comparison-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin: 30px 0;
+        }
+
+        .comparison-card {
+            background: var(--white);
+            border-radius: 20px;
+            padding: 30px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .comparison-card:hover {
+            transform: translateY(-8px);
+        }
+
+        .card-icon {
+            font-size: 3rem;
+            margin-bottom: 15px;
+        }
+
+        /* Story Section */
+        .story-section {
+            background: linear-gradient(135deg, var(--lavender) 0%, var(--sky-blue) 100%);
+        }
+
+        .timeline {
+            position: relative;
+            padding: 30px 0;
+        }
+
+        .timeline-item {
+            display: flex;
+            align-items: flex-start;
+            margin: 30px 0;
+            position: relative;
+            padding-left: 50px;
+        }
+
+        .timeline-dot {
+            position: absolute;
+            left: 0;
+            width: 30px;
+            height: 30px;
+            background: var(--soft-pink);
+            border-radius: 50%;
+            border: 4px solid var(--white);
+            z-index: 2;
+        }
+
+        .timeline-content {
+            background: var(--white);
+            border-radius: 15px;
+            padding: 20px;
+            flex: 1;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .timeline-year {
+            font-weight: 700;
+            color: var(--soft-pink);
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+        }
+
+        /* Framework Section */
+        .framework-section {
+            background: linear-gradient(135deg, var(--sky-blue) 0%, var(--cream) 100%);
+        }
+
+        .steps-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+            margin: 30px 0;
+        }
+
+        .step-card {
+            background: var(--white);
+            border-radius: 20px;
+            padding: 30px 25px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .step-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(90deg, var(--soft-pink), var(--lavender));
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+
+        .step-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .step-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .step-number {
+            display: inline-block;
+            width: 50px;
+            height: 50px;
+            background: var(--lavender);
+            color: var(--white);
+            border-radius: 50%;
+            line-height: 50px;
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        .step-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--navy);
+            margin-bottom: 15px;
+        }
+
+        /* Action Section */
+        .action-section {
+            background: linear-gradient(135deg, var(--cream) 0%, var(--soft-pink) 100%);
+        }
+
+        .action-cards {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 30px;
+            margin: 30px 0;
+        }
+
+        .action-card {
+            background: var(--white);
+            border-radius: 25px;
+            padding: 35px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+            display: flex;
+            align-items: flex-start;
+            gap: 25px;
+            transition: all 0.3s ease;
+        }
+
+        .action-card:hover {
+            transform: translateX(10px);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.18);
+        }
+
+        .action-icon {
+            flex-shrink: 0;
+            width: 80px;
+            height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .action-content h3 {
+            font-size: 1.5rem;
+            color: var(--navy);
+            margin-bottom: 15px;
+        }
+
+        .action-content p {
+            font-size: 1.05rem;
+            line-height: 1.8;
+            color: #555;
+        }
+
+        /* Highlight */
+        .highlight {
+            background: linear-gradient(transparent 60%, var(--cream) 60%);
+            padding: 2px 5px;
+            font-weight: 700;
+            color: var(--navy);
+        }
+
+        /* Footer Message */
+        .footer-message {
+            text-align: center;
+            padding: 60px 20px;
+            background: var(--white);
+            border-radius: 30px;
+            margin: 40px 0;
+            box-shadow: 0 10px 30px rgba(61, 64, 91, 0.15);
+        }
+
+        .footer-message h2 {
+            font-size: 2.2rem;
+            color: var(--navy);
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .footer-message p {
+            font-size: 1.2rem;
+            color: #666;
+        }
+
+        /* Floating Animation */
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0px);
+            }
+            50% {
+                transform: translateY(-20px);
+            }
+        }
+
+        .float-animation {
+            animation: float 3s ease-in-out infinite;
+        }
+
+        /* Fade In Animations */
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Pulse Animation for Icons */
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.05);
+            }
+        }
+
+        .pulse-animation {
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2rem;
+            }
+
+            .header .subtitle {
+                font-size: 1rem;
+            }
+
+            .section {
+                padding: 35px 25px;
+                margin: 25px 0;
+            }
+
+            .section-title {
+                font-size: 1.5rem;
+            }
+
+            .comparison-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .steps-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .action-card {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .footer-message h2 {
+                font-size: 1.6rem;
+            }
+        }
+
+        /* Content Styling */
+        p {
+            margin-bottom: 15px;
+            font-size: 1.05rem;
+        }
+
+        strong {
+            color: var(--navy);
+            font-weight: 700;
+        }
+
+        /* Wave Divider */
+        .wave-divider {
+            width: 100%;
+            height: 50px;
+            margin: 40px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <h1>충성의 역설 💫</h1>
+            <p class="subtitle">떠남으로써 완성되는 원칙</p>
+        </div>
+
+        <!-- Section 1: The Mirror Moment -->
+        <div class="section mirror-section">
+            <h2 class="section-title">🪞 거울 앞에 선 당신</h2>
+
+            <div class="illustration">
+                <svg width="300" height="300" viewBox="0 0 300 300" class="float-animation">
+                    <!-- Person looking in mirror -->
+                    <rect x="180" y="80" width="90" height="140" rx="10" fill="#E8E8E8" stroke="#3D405B" stroke-width="3"/>
+                    <!-- Reflection -->
+                    <circle cx="220" cy="120" r="18" fill="#FFC8DD" opacity="0.6"/>
+                    <path d="M 220 138 L 220 170" stroke="#FFC8DD" stroke-width="3" opacity="0.6"/>
+                    <path d="M 200 150 L 220 145 L 240 150" stroke="#FFC8DD" stroke-width="3" opacity="0.6"/>
+                    <path d="M 220 170 L 210 195" stroke="#FFC8DD" stroke-width="3" opacity="0.6"/>
+                    <path d="M 220 170 L 230 195" stroke="#FFC8DD" stroke-width="3" opacity="0.6"/>
+                    <!-- Sad face in mirror -->
+                    <circle cx="215" cy="115" r="2" fill="#3D405B" opacity="0.6"/>
+                    <circle cx="225" cy="115" r="2" fill="#3D405B" opacity="0.6"/>
+                    <path d="M 213 128 Q 220 124 227 128" stroke="#3D405B" stroke-width="2" fill="none" opacity="0.6"/>
+
+                    <!-- Real person -->
+                    <circle cx="120" cy="120" r="18" fill="#A2D2FF"/>
+                    <path d="M 120 138 L 120 170" stroke="#A2D2FF" stroke-width="3"/>
+                    <path d="M 100 150 L 120 145 L 140 150" stroke="#A2D2FF" stroke-width="3"/>
+                    <path d="M 120 170 L 110 195" stroke="#A2D2FF" stroke-width="3"/>
+                    <path d="M 120 170 L 130 195" stroke="#A2D2FF" stroke-width="3"/>
+                    <!-- Confused face -->
+                    <circle cx="115" cy="115" r="2" fill="#3D405B"/>
+                    <circle cx="125" cy="115" r="2" fill="#3D405B"/>
+                    <path d="M 113 125 L 127 125" stroke="#3D405B" stroke-width="2"/>
+                    <!-- Question marks -->
+                    <text x="140" y="110" font-size="20" fill="#3D405B">?</text>
+                    <text x="85" y="125" font-size="20" fill="#3D405B">?</text>
+                </svg>
+            </div>
+
+            <div class="quote-box">
+                "월요일 오전 9시, 임원회의실. 숫자는 조작되었다. 고객은 기만당했다. 팀장이 말한다. '이번만 넘어가자.' 당신도 고개를 숙인다."
+            </div>
+
+            <p style="text-align: center; font-size: 1.2rem; margin-top: 25px;">
+                퇴근 후 거울을 보니, <span class="highlight">낯선 얼굴이 당신을 응시합니다.</span>
+            </p>
+
+            <p style="text-align: center; font-size: 1.15rem; margin-top: 20px; color: var(--navy); font-weight: 700;">
+                가치관과 조직이 충돌할 때, 우리는 어떻게 해야 할까요?
+            </p>
+        </div>
+
+        <!-- Wave Divider -->
+        <svg class="wave-divider" viewBox="0 0 1200 100" preserveAspectRatio="none">
+            <path d="M0,50 Q300,10 600,50 T1200,50 L1200,100 L0,100 Z" fill="white" opacity="0.5"/>
+        </svg>
+
+        <!-- Section 2: The Erosion -->
+        <div class="section erosion-section">
+            <h2 class="section-title">⏳ 타협의 누적</h2>
+
+            <div class="illustration">
+                <svg width="400" height="200" viewBox="0 0 400 200">
+                    <!-- Domino effect illustration -->
+                    <g id="domino1">
+                        <rect x="50" y="100" width="40" height="80" rx="5" fill="#A2D2FF" stroke="#3D405B" stroke-width="2"/>
+                        <circle cx="70" cy="130" r="8" fill="white"/>
+                        <text x="63" y="136" font-size="16" font-weight="700" fill="#3D405B">1</text>
+                    </g>
+                    <g id="domino2" style="transform-origin: 135px 180px; transform: rotate(-15deg);">
+                        <rect x="115" y="100" width="40" height="80" rx="5" fill="#FFC8DD" stroke="#3D405B" stroke-width="2"/>
+                        <circle cx="135" cy="130" r="8" fill="white"/>
+                        <text x="128" y="136" font-size="16" font-weight="700" fill="#3D405B">2</text>
+                    </g>
+                    <g id="domino3" style="transform-origin: 200px 180px; transform: rotate(-30deg);">
+                        <rect x="180" y="100" width="40" height="80" rx="5" fill="#CDB4DB" stroke="#3D405B" stroke-width="2"/>
+                        <circle cx="200" cy="130" r="8" fill="white"/>
+                        <text x="193" y="136" font-size="16" font-weight="700" fill="#3D405B">3</text>
+                    </g>
+                    <g id="domino4" style="transform-origin: 265px 180px; transform: rotate(-45deg);">
+                        <rect x="245" y="100" width="40" height="80" rx="5" fill="#E8E8E8" stroke="#3D405B" stroke-width="2"/>
+                        <text x="260" y="145" font-size="20" fill="#3D405B">?</text>
+                    </g>
+                    <!-- Arrow showing direction -->
+                    <path d="M 90 60 L 280 60" stroke="#3D405B" stroke-width="2" stroke-dasharray="5,5"/>
+                    <path d="M 280 60 L 270 55 M 280 60 L 270 65" stroke="#3D405B" stroke-width="2"/>
+                    <text x="140" y="50" font-size="16" fill="#3D405B">시간의 흐름</text>
+                </svg>
+            </div>
+
+            <p style="text-align: center; font-size: 1.2rem; margin: 30px 0;">
+                첫 번째 타협은 작습니다. "이번만"이라는 주문이 따라옵니다.<br>
+                두 번째는 더 쉽습니다. 세 번째부터는 <span class="highlight">당신이 누구였는지 기억나지 않습니다.</span>
+            </p>
+
+            <div class="comparison-grid">
+                <div class="comparison-card">
+                    <div class="card-icon">😔</div>
+                    <h3 style="color: #e74c3c; margin-bottom: 15px;">타협 후</h3>
+                    <p>조직에 속해 있지만<br>더 이상 자신에게 속하지 않음</p>
+                </div>
+                <div class="comparison-card">
+                    <div class="card-icon">✨</div>
+                    <h3 style="color: #28a745; margin-bottom: 15px;">원칙 유지 후</h3>
+                    <p>자신의 정체성과<br>가치관을 지킴</p>
+                </div>
+            </div>
+
+            <div class="quote-box" style="margin-top: 30px;">
+                타협은 누적되고, 원칙은 증발합니다.
+            </div>
+        </div>
+
+        <!-- Wave Divider -->
+        <svg class="wave-divider" viewBox="0 0 1200 100" preserveAspectRatio="none">
+            <path d="M0,50 Q300,90 600,50 T1200,50 L1200,100 L0,100 Z" fill="white" opacity="0.5"/>
+        </svg>
+
+        <!-- Section 3: Bayi & Shuqi Story -->
+        <div class="section story-section">
+            <h2 class="section-title">🏔️ 백이와 숙제의 선택</h2>
+
+            <div class="illustration">
+                <svg width="400" height="250" viewBox="0 0 400 250" class="pulse-animation">
+                    <!-- Mountain (Suyang) -->
+                    <path d="M 50 200 L 150 80 L 250 200 Z" fill="#CDB4DB" opacity="0.7"/>
+                    <path d="M 100 200 L 200 100 L 350 200 Z" fill="#A2D2FF" opacity="0.5"/>
+                    <!-- Snow caps -->
+                    <path d="M 140 95 L 150 80 L 160 95" fill="white"/>
+                    <path d="M 190 115 L 200 100 L 210 115" fill="white"/>
+                    <!-- Two figures on mountain -->
+                    <g id="person1">
+                        <circle cx="180" cy="160" r="10" fill="#FFF2B2"/>
+                        <path d="M 180 170 L 180 190" stroke="#FFF2B2" stroke-width="2"/>
+                        <path d="M 170 178 L 180 175 L 190 178" stroke="#FFF2B2" stroke-width="2"/>
+                    </g>
+                    <g id="person2">
+                        <circle cx="210" cy="160" r="10" fill="#FFF2B2"/>
+                        <path d="M 210 170 L 210 190" stroke="#FFF2B2" stroke-width="2"/>
+                        <path d="M 200 178 L 210 175 L 220 178" stroke="#FFF2B2" stroke-width="2"/>
+                    </g>
+                    <!-- Plants (ferns) -->
+                    <g id="fern1">
+                        <path d="M 160 200 Q 155 190 160 180" stroke="#28a745" stroke-width="2" fill="none"/>
+                        <path d="M 160 195 L 155 193" stroke="#28a745" stroke-width="1.5"/>
+                        <path d="M 160 190 L 155 188" stroke="#28a745" stroke-width="1.5"/>
+                        <path d="M 160 185 L 155 183" stroke="#28a745" stroke-width="1.5"/>
+                    </g>
+                    <g id="fern2">
+                        <path d="M 230 200 Q 235 190 230 180" stroke="#28a745" stroke-width="2" fill="none"/>
+                        <path d="M 230 195 L 235 193" stroke="#28a745" stroke-width="1.5"/>
+                        <path d="M 230 190 L 235 188" stroke="#28a745" stroke-width="1.5"/>
+                    </g>
+                    <!-- Sun -->
+                    <circle cx="350" cy="80" r="25" fill="#FFF2B2" opacity="0.8"/>
+                    <g id="sun-rays">
+                        <line x1="350" y1="50" x2="350" y2="35" stroke="#FFF2B2" stroke-width="3"/>
+                        <line x1="380" y1="80" x2="395" y2="80" stroke="#FFF2B2" stroke-width="3"/>
+                        <line x1="370" y1="100" x2="382" y2="112" stroke="#FFF2B2" stroke-width="3"/>
+                        <line x1="370" y1="60" x2="382" y2="48" stroke="#FFF2B2" stroke-width="3"/>
+                    </g>
+                    <!-- Text label -->
+                    <text x="160" y="230" font-size="18" font-weight="700" fill="#3D405B">수양산</text>
+                </svg>
+            </div>
+
+            <p style="text-align: center; font-size: 1.15rem; margin: 25px 0;">
+                기원전 1046년, 주나라가 은나라를 멸했습니다. 천하가 새 질서를 환호했습니다.<br>
+                <strong>두 사람만 거부했습니다.</strong>
+            </p>
+
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-year">BC 1046년</div>
+                        <p><strong>백이와 숙제의 거절</strong><br>
+                        "무력으로 왕을 바꾸는 것은 의로움이 아니다." 은나라 신하였던 그들은 주나라의 곡식을 먹지 않겠다고 선언했습니다.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-year">수양산으로</div>
+                        <p><strong>원칙을 지키는 선택</strong><br>
+                        수양산으로 들어가 고사리를 캐며 살았습니다. 조직을 떠남으로써 자신을 지켰습니다.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-year">사마천의 기록</div>
+                        <p><strong>역사의 평가</strong><br>
+                        사마천은 『사기』 첫 번째 열전에 그들을 배치했습니다. <span class="highlight">역사는 승자를 기록하지만, 사마천은 떠난 자를 먼저 썼습니다.</span></p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="quote-box" style="margin-top: 30px; background: var(--cream);">
+                "때로는 떠나는 것이 가장 높은 충성이다."
+            </div>
+        </div>
+
+        <!-- Wave Divider -->
+        <svg class="wave-divider" viewBox="0 0 1200 100" preserveAspectRatio="none">
+            <path d="M0,50 Q300,10 600,50 T1200,50 L1200,100 L0,100 Z" fill="white" opacity="0.5"/>
+        </svg>
+
+        <!-- Section 4: Framework -->
+        <div class="section framework-section">
+            <h2 class="section-title">🗺️ 떠남의 기술</h2>
+
+            <div class="illustration">
+                <svg width="400" height="200" viewBox="0 0 400 200">
+                    <!-- Crossroads illustration -->
+                    <path d="M 200 180 L 200 100" stroke="#3D405B" stroke-width="4"/>
+                    <path d="M 100 80 L 200 100 L 300 80" stroke="#3D405B" stroke-width="4"/>
+
+                    <!-- Left path (compromise) - dark -->
+                    <g id="left-path">
+                        <rect x="50" y="50" width="60" height="80" fill="#999" opacity="0.5"/>
+                        <text x="65" y="95" font-size="16" fill="#333">타협</text>
+                    </g>
+
+                    <!-- Right path (principle) - bright -->
+                    <g id="right-path">
+                        <circle cx="310" cy="50" r="30" fill="#FFF2B2"/>
+                        <path d="M 310 80 L 350 50" stroke="#FFF2B2" stroke-width="3"/>
+                        <path d="M 350 50 L 345 45 M 350 50 L 345 55" stroke="#FFF2B2" stroke-width="2"/>
+                        <text x="280" y="125" font-size="16" fill="#3D405B" font-weight="700">원칙</text>
+                    </g>
+
+                    <!-- Person at crossroads -->
+                    <circle cx="200" cy="150" r="12" fill="#A2D2FF"/>
+                    <path d="M 200 162 L 200 180" stroke="#A2D2FF" stroke-width="2"/>
+                    <path d="M 188 170 L 200 166 L 212 170" stroke="#A2D2FF" stroke-width="2"/>
+                </svg>
+            </div>
+
+            <p style="text-align: center; font-size: 1.2rem; margin: 30px 0 40px;">
+                떠나는 것은 도망이 아닙니다. <span class="highlight">재배치입니다.</span><br>
+                당신의 원칙을 지킬 수 있는 곳으로의 이동입니다.
+            </p>
+
+            <div class="steps-grid">
+                <div class="step-card">
+                    <div class="step-number">1</div>
+                    <div class="step-title">기록하라</div>
+                    <p>가치관 충돌을 명확히 문서화합니다. 감정이 아닌 사실을 기록합니다.</p>
+                </div>
+
+                <div class="step-card">
+                    <div class="step-number">2</div>
+                    <div class="step-title">준비하라</div>
+                    <p>경제적 완충 장치를 만듭니다. 6개월치 생활비 또는 다음 기회를 확보합니다.</p>
+                </div>
+
+                <div class="step-card">
+                    <div class="step-number">3</div>
+                    <div class="step-title">말하라</div>
+                    <p>조용히 떠나지 마세요. 떠나는 이유를 명확히 전달합니다.</p>
+                </div>
+            </div>
+
+            <div class="quote-box" style="margin-top: 30px;">
+                "이 조직의 방향과 제 가치관이 다릅니다."<br>
+                <span style="font-size: 0.95rem; font-style: normal; color: #666;">이 한 문장이 당신을 지킵니다.</span>
+            </div>
+        </div>
+
+        <!-- Wave Divider -->
+        <svg class="wave-divider" viewBox="0 0 1200 100" preserveAspectRatio="none">
+            <path d="M0,50 Q300,90 600,50 T1200,50 L1200,100 L0,100 Z" fill="white" opacity="0.5"/>
+        </svg>
+
+        <!-- Section 5: Action Steps -->
+        <div class="section action-section">
+            <h2 class="section-title">✅ 내일 실천할 3가지</h2>
+
+            <div class="action-cards">
+                <!-- Action 1 -->
+                <div class="action-card">
+                    <div class="action-icon">
+                        <svg width="80" height="80" viewBox="0 0 80 80">
+                            <rect x="15" y="20" width="50" height="50" rx="5" fill="#A2D2FF" stroke="#3D405B" stroke-width="2"/>
+                            <line x1="25" y1="35" x2="55" y2="35" stroke="white" stroke-width="2"/>
+                            <line x1="25" y1="45" x2="55" y2="45" stroke="white" stroke-width="2"/>
+                            <line x1="25" y1="55" x2="45" y2="55" stroke="white" stroke-width="2"/>
+                            <!-- Pencil -->
+                            <rect x="50" y="50" width="4" height="20" fill="#FFF2B2" transform="rotate(-45 52 60)"/>
+                            <path d="M 58 58 L 62 62" stroke="#3D405B" stroke-width="2"/>
+                        </svg>
+                    </div>
+                    <div class="action-content">
+                        <h3>1. 기록하라</h3>
+                        <p>지난 6개월간 가치관 충돌 사건을 3개 이상 구체적으로 적습니다. 날짜, 상황, 당신의 감정을 포함하세요. 이것은 당신을 보호하는 증거가 됩니다.</p>
+                    </div>
+                </div>
+
+                <!-- Action 2 -->
+                <div class="action-card">
+                    <div class="action-icon">
+                        <svg width="80" height="80" viewBox="0 0 80 80">
+                            <circle cx="40" cy="40" r="25" fill="#FFC8DD" stroke="#3D405B" stroke-width="2"/>
+                            <text x="28" y="50" font-size="28" font-weight="700" fill="white">₩</text>
+                            <path d="M 20 25 L 30 15" stroke="#FFF2B2" stroke-width="2"/>
+                            <path d="M 60 25 L 50 15" stroke="#FFF2B2" stroke-width="2"/>
+                            <circle cx="30" cy="15" r="3" fill="#FFF2B2"/>
+                            <circle cx="50" cy="15" r="3" fill="#FFF2B2"/>
+                        </svg>
+                    </div>
+                    <div class="action-content">
+                        <h3>2. 재정 점검하라</h3>
+                        <p>현재 통장 잔고와 월 고정지출을 계산합니다. 당장 떠나도 버틸 수 있는 개월 수를 확인하세요. 떠남의 현실성을 파악하는 것이 목표입니다.</p>
+                    </div>
+                </div>
+
+                <!-- Action 3 -->
+                <div class="action-card">
+                    <div class="action-icon">
+                        <svg width="80" height="80" viewBox="0 0 80 80">
+                            <path d="M 25 50 Q 25 25 40 25 Q 55 25 55 50" stroke="#CDB4DB" stroke-width="4" fill="none"/>
+                            <circle cx="40" cy="50" r="8" fill="#CDB4DB"/>
+                            <rect x="35" y="48" width="10" height="15" fill="#CDB4DB"/>
+                            <!-- Key -->
+                            <circle cx="40" cy="35" r="5" fill="#FFF2B2" stroke="#3D405B" stroke-width="2"/>
+                            <rect x="38" y="35" width="4" height="12" fill="#FFF2B2" stroke="#3D405B" stroke-width="2"/>
+                        </svg>
+                    </div>
+                    <div class="action-content">
+                        <h3>3. 가치관 문장을 쓰라</h3>
+                        <p>"나는 ___을 절대 타협하지 않는다"라는 문장을 완성합니다. 책상에 붙이세요. 한 달 후, 이 문장이 여전히 유효한지 확인하라.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer Message -->
+        <div class="footer-message">
+            <h2>
+                떠나는 것은 패배가 아니다 🌟<br>
+                떠나는 것은 당신이 여전히<br>
+                당신임을 증명하는 행위다
+            </h2>
+            <p style="margin-top: 30px;">
+                백이숙제는 굶어 죽었지만, 역사는 그들을 기억합니다.<br>
+                당신이 떠난 후에도, <span class="highlight">당신의 원칙은 남습니다.</span>
+            </p>
+            <p style="margin-top: 25px; font-size: 1.1rem; color: var(--navy);">
+                조직은 바뀌지만, 원칙은 바뀌지 않습니다.<br>
+                수양산은 멀지 않습니다. 그것은 당신의 가치관이 숨 쉴 수 있는 곳, 어디든 될 수 있습니다.
+            </p>
+            <div style="margin-top: 40px; padding: 25px; background: linear-gradient(135deg, var(--cream), var(--soft-pink)); border-radius: 15px;">
+                <p style="font-size: 1.3rem; font-weight: 700; color: var(--navy);">
+                    떠날 준비를 하라. 이것이 시작이다. 🚀
+                </p>
+            </div>
+        </div>
+
+        <!-- Final Decorative Element -->
+        <div style="text-align: center; padding: 40px 0;">
+            <svg width="100" height="100" viewBox="0 0 100 100" class="float-animation">
+                <circle cx="50" cy="50" r="40" fill="none" stroke="#A2D2FF" stroke-width="3" stroke-dasharray="5,5"/>
+                <path d="M 50 30 L 55 45 L 70 45 L 58 55 L 63 70 L 50 60 L 37 70 L 42 55 L 30 45 L 45 45 Z" fill="#FFF2B2" stroke="#3D405B" stroke-width="2"/>
+            </svg>
+        </div>
+
+    </div>
+
+    <script>
+        // Simple scroll animation
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.section').forEach(section => {
+            section.style.opacity = '0';
+            section.style.transform = 'translateY(30px)';
+            section.style.transition = 'opacity 0.8s ease-out, transform 0.8s ease-out';
+            observer.observe(section);
+        });
+    </script>
+</body>
+</html>
